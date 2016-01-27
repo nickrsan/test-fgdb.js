@@ -1,0 +1,43 @@
+{
+  "name": "fgdb",
+  "version": "1.0.0",
+  "description": "parsing an esri file GDB IN JAVASCRIPT!",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha -R nyan test/test.js",
+    "build-js": "browserify . -s fgdb > dist/fgdb.js",
+    "build-min": "browserify . -s fgdb | uglifyjs -mc > dist/fgdb.min.js",
+    "build": "npm run build-js && npm run build-min",
+    "site": "browserify site/script.js | uglifyjs -mc > site/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/calvinmetcalf/fileGDB.js.git"
+  },
+  "keywords": [
+    "gis",
+    "spatial",
+    "fgdb"
+  ],
+  "browser": {
+    "./lib/nodeReader.js": "./lib/browserReader.js"
+  },
+  "author": "Calvin Metcalf",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/calvinmetcalf/fileGDB.js/issues"
+  },
+  "devDependencies": {
+    "browserify": "^11.0.1",
+    "geojson-assert": "0.0.2",
+    "leaflet": "~0.6.4",
+    "mocha": "~1.13.0",
+    "uglify-js": "^2.4.24"
+  },
+  "dependencies": {
+    "jszip": "~0.2.1",
+    "lie": "^3.0.0",
+    "long": "~1.1.2",
+    "proj4": "^2.3.6"
+  }
+}
